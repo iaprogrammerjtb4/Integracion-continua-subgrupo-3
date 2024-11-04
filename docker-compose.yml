@@ -1,0 +1,33 @@
+version: '3.8' #Versión del formato de docker compose
+
+services:
+  # Contenedor MySQL
+  db:
+    image: mysql:8.0
+    container_name: mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: my_database
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  # Contenedor PHP
+  php:
+    build:
+      context: .
+      dockerfile: DockerfilePhp
+    container_name: php_container
+    ports:
+      - "8080:80"
+    volumes:
+      - ./volumen-php:/var/www/html
+    depends_on:
+      - db
+
+# Volúmenes
+volumes:
+  db_data:
