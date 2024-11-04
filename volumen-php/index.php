@@ -1,11 +1,11 @@
 <?php
-echo "¡Hola, mundo desde PHP!";
+echo "¡Proyecto Integraciòn Continùa Subgrupo 3!";
 
 // Datos de conexión
-$host = 'db';        // Host del servidor MySQL
-$dbname = 'my_database';    // Nombre de la base de datos
-$username = 'user';      // Usuario de la base de datos
-$password = 'user_password';   // Contraseña del usuario
+$host = 'db';      
+$dbname = 'base_datos_prueba';    
+$username = 'user';     
+$password = 'poli_2424';   
 
 // Crear la conexión
 $conn = new mysqli($host, $username, $password, $dbname);
@@ -17,6 +17,6 @@ if ($conn->connect_error) {
     echo "Conexión exitosa a la base de datos '$dbname'.";
 }
 
-// Cerrar la conexión (opcional aquí)
+// Cerrar la conexión 
 $conn->close();
 ?>

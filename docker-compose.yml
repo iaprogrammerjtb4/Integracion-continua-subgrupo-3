@@ -1,21 +1,21 @@
 version: '3.8' #Versión del formato de docker compose
 
 services:
-  # Contenedor MySQL
+  # Configuracion del contenedor Mysql
   db:
     image: mysql:8.0
     container_name: mysql_container
     environment:
       MYSQL_ROOT_PASSWORD: root_password
-      MYSQL_DATABASE: my_database
+      MYSQL_DATABASE: base_datos_prueba
       MYSQL_USER: user
-      MYSQL_PASSWORD: user_password
+      MYSQL_PASSWORD: poli_2424
     ports:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
 
-  # Contenedor PHP
+  # Configuracion del Contenedor PHP
   php:
     build:
       context: .
